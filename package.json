@@ -1,0 +1,15 @@
+{
+  "name": "sphinx-ai-website",
+  "version": "1.0.0",
+  "description": "Sphinx AI Labs - AI Calling Solutions Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -s . -l 10000"
+  },
+  "keywords": ["sphinx-ai", "ai-calling"],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
