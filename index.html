@@ -15,11 +15,11 @@
         <div class="container">
             <div class="nav-content">
                 <div class="logo">
-                    <span class="logo-icon">⚡</span>
-                    <span class="logo-text">Sphinx AI Labs</span>
+                    <img src="logo.png" alt="Sphinx AI Labs" class="logo-image">
                 </div>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
                     <li><a href="#packages">Packages</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -79,6 +79,50 @@
                     <div class="feature-icon">⚡</div>
                     <h3>Scalable Solutions</h3>
                     <p>Flexible minute-based packages designed for councils and public-sector clients</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Sphinx AI Labs</h2>
+                <p class="section-subtitle">Bridging conversations with intelligent technology</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        Sphinx AI Labs is a leading provider of AI-powered calling solutions, operating from our offices in 
+                        <strong>Perth, Australia</strong> and <strong>Hyderabad, India</strong>. We specialize in transforming 
+                        how organizations conduct outreach campaigns through advanced artificial intelligence technology.
+                    </p>
+                    <div class="about-mission">
+                        <h3>What We Do</h3>
+                        <p>
+                            We develop and deploy AI calling systems that engage in natural, contextual conversations with your 
+                            target audience. Our technology doesn't just make calls—it understands, responds, and generates 
+                            comprehensive insights from every interaction. We provide automated calling solutions that capture 
+                            technical metrics, sentiment analysis, payment intent, and detailed transcripts, giving you complete 
+                            visibility into your campaign performance.
+                        </p>
+                    </div>
+                    <div class="about-why">
+                        <h3>Why We Do It</h3>
+                        <p>
+                            Traditional automated calling systems often lose the context and nuance of human conversation. 
+                            We built Sphinx AI Labs because we believe that <strong>no contextual information should ever be lost</strong> 
+                            in communication. Our AI systems are designed to maintain conversation context throughout the entire 
+                            interaction, ensuring that every detail, sentiment, and insight is captured and preserved.
+                        </p>
+                        <p>
+                            Whether you're reaching out to constituents, customers, or stakeholders, our technology ensures that 
+                            the full meaning and context of every conversation is retained. This commitment to preserving contextual 
+                            integrity allows organizations to make better decisions, improve their outreach strategies, and build 
+                            stronger relationships with their audiences.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -268,7 +312,7 @@
                         <div class="contact-icon">📧</div>
                         <div>
                             <h4>Email</h4>
-                            <p>contact@sphinxai.com</p>
+                            <p>sphinxailabs@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -279,20 +323,21 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" id="contact-form">
                     <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
+                        <input type="text" name="name" id="name" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
+                        <input type="email" name="email" id="email" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Organization">
+                        <input type="text" name="organization" id="organization" placeholder="Organization">
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Tell us about your requirements" rows="5" required></textarea>
+                        <textarea name="message" id="message" placeholder="Tell us about your requirements" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <div id="form-message" class="form-message"></div>
+                    <button type="submit" class="btn btn-primary" id="submit-btn">Send Message</button>
                 </form>
             </div>
         </div>
@@ -303,8 +348,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <span class="logo-icon">⚡</span>
-                    <span class="logo-text">Sphinx AI Labs</span>
+                    <img src="logo.png" alt="Sphinx AI Labs" class="logo-image">
                 </div>
                 <p class="footer-text">AI-Powered Calling Solutions with Intelligent Insights</p>
                 <p class="footer-copyright">© 2024 Sphinx AI Labs. All rights reserved.</p>
@@ -312,6 +356,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

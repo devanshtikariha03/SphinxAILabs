@@ -87,29 +87,73 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Form submission handler
+// Form submission handler with EmailJS
 const contactForm = document.querySelector('.contact-form');
+const formMessage = document.getElementById('form-message');
+const submitBtn = document.getElementById('submit-btn');
+
+// Initialize EmailJS
+emailjs.init("yqW1qg1il3akya4lI");
+
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         // Get form data
-        const formData = new FormData(contactForm);
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const message = contactForm.querySelector('textarea').value;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const organization = document.getElementById('organization').value;
+        const message = document.getElementById('message').value;
         
         // Simple validation
         if (!name || !email || !message) {
-            alert('Please fill in all required fields.');
+            showMessage('Please fill in all required fields.', 'error');
             return;
         }
         
-        // Here you would typically send the data to a server
-        // For now, we'll just show a success message
-        alert('Thank you for your message! We will get back to you soon.');
-        contactForm.reset();
+        // Disable submit button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        formMessage.textContent = '';
+        
+        try {
+            // Send email using EmailJS
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                organization: organization || 'Not provided',
+                message: message,
+                to_email: 'sphinxailabs@gmail.com'
+            };
+            
+            // Send email using EmailJS
+            await emailjs.send(
+                'service_un9k9d9',    // Your EmailJS Service ID
+                'template_6fpmqim',   // Your EmailJS Template ID
+                templateParams
+            );
+            
+            showMessage('Thank you for your message! We will get back to you soon.', 'success');
+            contactForm.reset();
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            showMessage('Sorry, there was an error sending your message. Please try again or email us directly at sphinxailabs@gmail.com', 'error');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+        }
     });
+}
+
+function showMessage(text, type) {
+    formMessage.textContent = text;
+    formMessage.className = `form-message ${type}`;
+    
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+        formMessage.textContent = '';
+        formMessage.className = 'form-message';
+    }, 5000);
 }
 
 // Add parallax effect to hero orbs

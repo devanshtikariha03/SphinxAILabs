@@ -57,12 +57,17 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 1.5rem;
-    font-weight: 700;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+}
+
+.logo-image {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
 }
 
 .logo-icon {
@@ -338,6 +343,100 @@ section {
 }
 
 .feature-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* About Us Section */
+.about {
+    background: var(--bg-primary);
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-text {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.about-intro {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+}
+
+.about-mission,
+.about-why,
+.about-locations {
+    margin-bottom: 3rem;
+}
+
+.about-mission h3,
+.about-why h3,
+.about-locations h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about-mission p,
+.about-why p {
+    margin-bottom: 1.25rem;
+    color: var(--text-secondary);
+}
+
+.about-why strong {
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.location-card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.location-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.5));
+}
+
+.location-card h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.location-card p {
     color: var(--text-secondary);
     line-height: 1.6;
 }
@@ -727,6 +826,33 @@ section {
     color: var(--text-secondary);
 }
 
+.form-message {
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-height: 20px;
+}
+
+.form-message.success {
+    background: rgba(34, 197, 94, 0.2);
+    border: 1px solid rgba(34, 197, 94, 0.5);
+    color: #4ade80;
+}
+
+.form-message.error {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    color: #f87171;
+}
+
+#submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 /* Footer */
 .footer {
     background: var(--bg-secondary);
@@ -743,13 +869,13 @@ section {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    font-size: 1.5rem;
-    font-weight: 700;
     margin-bottom: 1rem;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+}
+
+.footer-logo .logo-image {
+    height: 120px;
+    width: auto;
+    object-fit: contain;
 }
 
 .footer-text {
@@ -801,6 +927,26 @@ section {
     .container {
         padding: 0 1.5rem;
     }
+
+    .logo-image {
+        height: 70px;
+    }
+
+    .footer-logo .logo-image {
+        height: 90px;
+    }
+
+    .about-text {
+        font-size: 1rem;
+    }
+
+    .about-intro {
+        font-size: 1.1rem;
+    }
+
+    .locations-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
@@ -818,5 +964,27 @@ section {
 
     section {
         padding: 4rem 0;
+    }
+
+    .logo-image {
+        height: 60px;
+    }
+
+    .footer-logo .logo-image {
+        height: 80px;
+    }
+
+    .about-mission h3,
+    .about-why h3,
+    .about-locations h3 {
+        font-size: 1.5rem;
+    }
+
+    .about-text {
+        font-size: 0.95rem;
+    }
+
+    .about-intro {
+        font-size: 1rem;
     }
 }
